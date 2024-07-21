@@ -1,0 +1,14 @@
+
+services:
+  db:
+    image: mysql
+    container_name: mysql_sectorsync
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - sectorsync_data:/var/lib/mysql
+
+volumes:
+  sectorsync_data:
