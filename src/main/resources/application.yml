@@ -6,12 +6,13 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/sectorsync?createDatabaseIfNotExist=true
+    url: jdbc:postgresql://localhost:5432/sectorsync?createDatabaseIfNotExist=true
     username: root
     password: root
   jpa:
     hibernate:
       ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
 
 
 logging:

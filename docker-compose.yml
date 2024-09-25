@@ -1,14 +1,17 @@
+version: '3.8'
 
 services:
   db:
-    image: mysql
-    container_name: mysql_sectorsync
+    image: postgres
+    container_name: postgresql_sectorsync
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: sectorsync
     ports:
-      - "3306:3306"
+      - "5432:5432"
     volumes:
-      - sectorsync_data:/var/lib/mysql
+      - sectorsync_data:/var/lib/postgresql/data
 
 volumes:
   sectorsync_data:
