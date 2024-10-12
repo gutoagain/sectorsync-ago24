@@ -31,8 +31,9 @@ public class UsuarioApplicationService implements UsuarioService {
     @Override
     public UsuarioCriadoResponse buscaUsuarioPorId(UUID idUsuario) {
         log.info("[inicia] UsuarioApplicationService - buscaUsuarioPorId");
+        Usuario usuario = usuarioRepository.buscaUsuarioPorId(idUsuario);
         log.info("[finaliza] UsuarioApplicationService - buscaUsuarioPorId");
-        return null;
+        return new UsuarioCriadoResponse(usuario);
     }
 
     private void verificaSeUsuarioExiste(UsuarioNovoRequest usuarioNovo) {

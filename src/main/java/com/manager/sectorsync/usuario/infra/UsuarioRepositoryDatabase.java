@@ -1,10 +1,14 @@
 package com.manager.sectorsync.usuario.infra;
 
+import com.manager.sectorsync.handler.APIException;
 import com.manager.sectorsync.usuario.application.repository.UsuarioRepository;
 import com.manager.sectorsync.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
+
+import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
@@ -26,5 +30,14 @@ public class UsuarioRepositoryDatabase implements UsuarioRepository {
         Usuario usuario = usuarioPostgreSqlRepository.findByEmail(email);
         log.info("[finaliza] UsuarioRepositoryDatabase - verificaSeUsuarioExistePorEmail");
         return usuario != null;
+    }
+
+    @Override
+    public Usuario buscaUsuarioPorId(UUID idUsuario) {
+        log.info("[inicia] UsuarioRepositoryDatabase - buscaUsuarioPorId");
+        Usuario usuario = usuarioPostgreSqlRepository.findByIdUsuario(idUsuario)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Usuario não encontrado!"));
+        log.info("[finaliza] UsuarioRepositoryDatabase - buscaUsuarioPorId");
+        return usuario;
     }
 }
