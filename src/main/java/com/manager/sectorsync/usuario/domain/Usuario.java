@@ -5,6 +5,7 @@ import com.manager.sectorsync.usuario.application.api.UsuarioNovoRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
@@ -21,6 +22,8 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "uuid", name = "idUsuario", updatable = false, unique = true, nullable = false)
     private UUID idUsuario;
+    @Size(min = 1, max = 60)
+    private String nome;
     @Email
     @NotEmpty(message = "O campo email é obrigatório.")
     @Size(min = 5, max = 255, message = "O email deve ter entre 5 e 255 caracteres.")
@@ -31,6 +34,7 @@ public class Usuario {
 
     public Usuario(UsuarioNovoRequest usuarioNovo) {
         this.idUsuario = UUID.randomUUID();
+        this.nome = usuarioNovo.getNome();
         this.email = usuarioNovo.getEmail();
         this.senha = usuarioNovo.getSenha();
     }

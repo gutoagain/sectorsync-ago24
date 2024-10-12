@@ -12,10 +12,12 @@ import java.util.UUID;
 @Builder
 public class UsuarioCriadoResponse {
     private final UUID idUsuario;
+    private final String nome;
     private final String email;
 
     public UsuarioCriadoResponse(Usuario usuario) {
         this.idUsuario = usuario.getIdUsuario();
+        this.nome = usuario.getNome();
         this.email = usuario.getEmail();
     }
 }

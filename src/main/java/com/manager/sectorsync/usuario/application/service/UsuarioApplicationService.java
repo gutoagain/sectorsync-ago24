@@ -10,6 +10,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 @Log4j2
 @RequiredArgsConstructor
@@ -24,6 +26,13 @@ public class UsuarioApplicationService implements UsuarioService {
         usuarioRepository.salva(usuario);
         log.info("[finaliza] UsuarioApplicationService - criaNovoUsuario");
         return new UsuarioCriadoResponse(usuario);
+    }
+
+    @Override
+    public UsuarioCriadoResponse buscaUsuarioPorId(UUID idUsuario) {
+        log.info("[inicia] UsuarioApplicationService - buscaUsuarioPorId");
+        log.info("[finaliza] UsuarioApplicationService - buscaUsuarioPorId");
+        return null;
     }
 
     private void verificaSeUsuarioExiste(UsuarioNovoRequest usuarioNovo) {
