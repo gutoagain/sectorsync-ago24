@@ -35,6 +35,7 @@ public class UsuarioController implements UsuarioAPI {
     @Override
     public void editaUsuario(UUID idUsuario, UsuarioEditaRequest usuarioEditaRequest) {
         log.info("[inicia] UsuarioController - editaUsuario");
+        usuarioAppplicationService.editaUsuario(idUsuario, usuarioEditaRequest);
         log.info("[finaliza] UsuarioController - editaUsuario");
     }
 }

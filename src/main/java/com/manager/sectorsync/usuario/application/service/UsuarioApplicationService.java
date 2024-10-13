@@ -2,6 +2,7 @@ package com.manager.sectorsync.usuario.application.service;
 
 import com.manager.sectorsync.handler.APIException;
 import com.manager.sectorsync.usuario.application.api.UsuarioCriadoResponse;
+import com.manager.sectorsync.usuario.application.api.UsuarioEditaRequest;
 import com.manager.sectorsync.usuario.application.api.UsuarioNovoRequest;
 import com.manager.sectorsync.usuario.application.repository.UsuarioRepository;
 import com.manager.sectorsync.usuario.domain.Usuario;
@@ -34,6 +35,12 @@ public class UsuarioApplicationService implements UsuarioService {
         Usuario usuario = usuarioRepository.buscaUsuarioPorId(idUsuario);
         log.info("[finaliza] UsuarioApplicationService - buscaUsuarioPorId");
         return new UsuarioCriadoResponse(usuario);
+    }
+
+    @Override
+    public void editaUsuario(UUID idUsuario, UsuarioEditaRequest usuarioEditaRequest) {
+        log.info("[inicia] UsuarioApplicationService - editaUsuario");
+        log.info("[finaliza] UsuarioApplicationService - editaUsuario");
     }
 
     private void verificaSeUsuarioExiste(UsuarioNovoRequest usuarioNovo) {
