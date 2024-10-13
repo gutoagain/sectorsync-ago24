@@ -38,13 +38,4 @@ public class Usuario {
         this.email = usuarioNovo.getEmail();
         this.senha = usuarioNovo.getSenha();
     }
-
-    public void validaSeUsuarioExistePorEmail(String usuarioEmail) {
-        log.info("[inicia] Usuario - validaSeUsuarioNaoExistePorEmail");
-        if (this.email.equals(usuarioEmail)) {
-            log.info("[finaliza] APIException - validaUsuario");
-            throw APIException.build(HttpStatus.UNAUTHORIZED, "Email já existe.");
-        }
-        log.info("[finaliza] Usuario - validaSeUsuarioNaoExistePorEmail");
-    }
 }

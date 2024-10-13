@@ -31,4 +31,10 @@ public class UsuarioController implements UsuarioAPI {
         log.info("[finaliza] UsuarioController - buscaUsuarioPorId");
         return buscaUsuario;
     }
+
+    @Override
+    public void editaUsuario(UUID idUsuario, UsuarioEditaRequest usuarioEditaRequest) {
+        log.info("[inicia] UsuarioController - editaUsuario");
+        log.info("[finaliza] UsuarioController - editaUsuario");
+    }
 }

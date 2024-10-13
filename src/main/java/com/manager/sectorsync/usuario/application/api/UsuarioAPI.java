@@ -18,4 +18,7 @@ public interface UsuarioAPI {
     @ResponseStatus(code = HttpStatus.OK)
     UsuarioCriadoResponse buscaUsuarioPorId(@PathVariable UUID idUsuario);
 
+    @PatchMapping("/editaUsuario/{idUsuario}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void editaUsuario(@PathVariable UUID idUsuario, @RequestBody @Valid UsuarioEditaRequest usuarioEditaRequest);
 }
