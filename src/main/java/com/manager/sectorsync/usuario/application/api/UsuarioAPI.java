@@ -21,4 +21,8 @@ public interface UsuarioAPI {
     @PatchMapping("/editaUsuario/{idUsuario}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void editaUsuario(@PathVariable UUID idUsuario, @RequestBody @Valid UsuarioEditaRequest usuarioEditaRequest);
+
+    @DeleteMapping(value = "/deletaUsuario/{idUsuario}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletaUsuario(@PathVariable UUID idUsuario);
 }

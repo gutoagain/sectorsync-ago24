@@ -38,4 +38,10 @@ public class UsuarioController implements UsuarioAPI {
         usuarioAppplicationService.editaUsuario(idUsuario, usuarioEditaRequest);
         log.info("[finaliza] UsuarioController - editaUsuario");
     }
+
+    @Override
+    public void deletaUsuario(UUID idUsuario) {
+        log.info("[inicia] UsuarioController - deletaUsuario");
+        log.info("[finaliza] UsuarioController - deletaUsuario");
+    }
 }
