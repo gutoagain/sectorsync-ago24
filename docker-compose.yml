@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   db:
-    image: postgres
+    image: sectorsync-db
     container_name: postgresql_sectorsync
     environment:
       POSTGRES_USER: root
@@ -10,8 +10,6 @@ services:
       POSTGRES_DB: sectorsync
     ports:
       - "5432:5432"
-    volumes:
-      - sectorsync_data:/var/lib/postgresql/data
 
 volumes:
   sectorsync_data:
