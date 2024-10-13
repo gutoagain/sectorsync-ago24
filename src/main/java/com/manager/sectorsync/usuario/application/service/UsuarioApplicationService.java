@@ -40,6 +40,9 @@ public class UsuarioApplicationService implements UsuarioService {
     @Override
     public void editaUsuario(UUID idUsuario, UsuarioEditaRequest usuarioEditaRequest) {
         log.info("[inicia] UsuarioApplicationService - editaUsuario");
+        Usuario usuario = usuarioRepository.buscaUsuarioPorId(idUsuario);
+        usuario.editaUsuario(usuarioEditaRequest);
+        usuarioRepository.salva(usuario);
         log.info("[finaliza] UsuarioApplicationService - editaUsuario");
     }
 

@@ -1,15 +1,12 @@
 package com.manager.sectorsync.usuario.domain;
 
-import com.manager.sectorsync.handler.APIException;
+import com.manager.sectorsync.usuario.application.api.UsuarioEditaRequest;
 import com.manager.sectorsync.usuario.application.api.UsuarioNovoRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.HttpStatus;
 
 import java.util.UUID;
 
@@ -25,8 +22,6 @@ public class Usuario {
     @Size(min = 1, max = 60)
     private String nome;
     @Email
-    @NotEmpty(message = "O campo email é obrigatório.")
-    @Size(min = 5, max = 255, message = "O email deve ter entre 5 e 255 caracteres.")
     @Column(unique = true, nullable = false)
     private String email;
     @Size(max = 60)
@@ -37,5 +32,20 @@ public class Usuario {
         this.nome = usuarioNovo.getNome();
         this.email = usuarioNovo.getEmail();
         this.senha = usuarioNovo.getSenha();
+    }
+
+    public void editaUsuario(UsuarioEditaRequest usuarioEditaRequest) {
+        // Nome
+        if (usuarioEditaRequest.getNome() == null) {
+            usuarioEditaRequest.setNome(this.nome);
+        } else {
+            this.nome = usuarioEditaRequest.getNome();
+        }
+        // Email
+        if (usuarioEditaRequest.getEmail() == null) {
+            usuarioEditaRequest.setEmail(this.email);
+        } else {
+            this.email = usuarioEditaRequest.getEmail();
+        }
     }
 }
