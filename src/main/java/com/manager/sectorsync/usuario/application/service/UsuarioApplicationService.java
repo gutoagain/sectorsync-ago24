@@ -46,6 +46,12 @@ public class UsuarioApplicationService implements UsuarioService {
         log.info("[finaliza] UsuarioApplicationService - editaUsuario");
     }
 
+    @Override
+    public void deletaUsuario(UUID idUsuario) {
+        log.info("[inicia] UsuarioApplicationService - deletaUsuario");
+        log.info("[finaliza] UsuarioApplicationService - deletaUsuario");
+    }
+
     private void verificaSeUsuarioExiste(UsuarioNovoRequest usuarioNovo) {
         log.info("[inicia] UsuarioApplicationService - verificaSeUsuarioExiste");
         boolean usuarioExiste = usuarioRepository.verificaSeUsuarioExistePorEmail(usuarioNovo.getEmail());

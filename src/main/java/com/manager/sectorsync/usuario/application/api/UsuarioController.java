@@ -35,6 +35,7 @@ public class UsuarioController implements UsuarioAPI {
     @Override
     public void editaUsuario(UUID idUsuario, UsuarioEditaRequest usuarioEditaRequest) {
         log.info("[inicia] UsuarioController - editaUsuario");
+        log.info("[idUsuario] {}", idUsuario);
         usuarioAppplicationService.editaUsuario(idUsuario, usuarioEditaRequest);
         log.info("[finaliza] UsuarioController - editaUsuario");
     }
@@ -42,6 +43,8 @@ public class UsuarioController implements UsuarioAPI {
     @Override
     public void deletaUsuario(UUID idUsuario) {
         log.info("[inicia] UsuarioController - deletaUsuario");
+        log.info("[idUsuario] {}", idUsuario);
+        usuarioAppplicationService.deletaUsuario(idUsuario);
         log.info("[finaliza] UsuarioController - deletaUsuario");
     }
 }

@@ -10,4 +10,5 @@ public interface UsuarioService {
     UsuarioCriadoResponse criaNovoUsuario(UsuarioNovoRequest usuarioNovo);
     UsuarioCriadoResponse buscaUsuarioPorId(UUID idUsuario);
     void editaUsuario(UUID idUsuario, UsuarioEditaRequest usuarioEditaRequest);
+    void deletaUsuario(UUID idUsuario);
 }
