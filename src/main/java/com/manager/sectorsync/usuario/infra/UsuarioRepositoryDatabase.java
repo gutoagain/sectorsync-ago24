@@ -40,4 +40,11 @@ public class UsuarioRepositoryDatabase implements UsuarioRepository {
         log.info("[finaliza] UsuarioRepositoryDatabase - buscaUsuarioPorId");
         return usuario;
     }
+
+    @Override
+    public void detelaUsuario(Usuario usuario) {
+        log.info("[inicia] UsuarioRepositoryDatabase - detelaUsuario");
+        usuarioPostgreSqlRepository.delete(usuario);
+        log.info("[finaliza] UsuarioRepositoryDatabase - detelaUsuario");
+    }
 }

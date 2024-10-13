@@ -8,4 +8,5 @@ public interface UsuarioRepository {
     Usuario salva(Usuario usuario);
     boolean verificaSeUsuarioExistePorEmail(String email);
     Usuario buscaUsuarioPorId(UUID idUsuario);
+    void detelaUsuario(Usuario usuario);
 }

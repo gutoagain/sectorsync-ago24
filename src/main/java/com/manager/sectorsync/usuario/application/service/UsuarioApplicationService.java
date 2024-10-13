@@ -49,6 +49,8 @@ public class UsuarioApplicationService implements UsuarioService {
     @Override
     public void deletaUsuario(UUID idUsuario) {
         log.info("[inicia] UsuarioApplicationService - deletaUsuario");
+        Usuario usuario = usuarioRepository.buscaUsuarioPorId(idUsuario);
+        usuarioRepository.detelaUsuario(usuario);
         log.info("[finaliza] UsuarioApplicationService - deletaUsuario");
     }
 
